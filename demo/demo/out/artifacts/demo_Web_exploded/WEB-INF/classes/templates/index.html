@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+</head>
+<body class="form-bg">
+<div class="container my-form form-horizontal">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="top">
+                welcome，<span id="name"></span> |
+                <a href="./logout">logout</a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-5" id="left">
+                <div class="top">Financial news</div>
+                <div class="col-md-12" >
+                <ul>
+                    <li class="bullet_item">
+                        <a  href="https://www.marketwatch.com/story/get-ready-for-a-new-world-order-that-drives-stocks-and-bonds-blackrock-11649110028?mod=home-page">Get ready for a ‘new world order’ that drives stocks and bonds: BlackRock</a>
+                    </li>
+                    <li class="bullet_item">
+                        <a  href="https://www.marketwatch.com/story/stocks-didnt-rally-despite-inverted-yield-curve-they-rallied-because-of-it-says-veteran-strategist-11649101577?mod=home-page">Stocks are rallying because of what an inverted yield curve says about the Fed and inflation, strategist says</a>
+                    </li>
+                    <li class="bullet_item">
+                        <a  href="https://www.marketwatch.com/story/dow-transports-selloff-may-be-warning-of-something-more-than-just-a-macro-speed-bump-11649099967?mod=home-page">Dow transports selloff may be warning of something more than just a macro speed bump</a>
+                    </li>
+                    <li class="bullet_item">
+                        <a  href="https://www.marketwatch.com/story/dow-transports-selloff-may-be-warning-of-something-more-than-just-a-macro-speed-bump-11649099967?mod=home-page">U.S. stock futures pull back as investors watch yield curve and Ukraine war</a>
+                    </li>
+
+                    <li class="bullet_item">
+                        <a  href="https://www.marketwatch.com/story/elon-musk-asked-twitter-users-if-they-wanted-an-edit-button-an-overwhelming-majority-said-yes-11649137705?mod=home-page">Elon Musk asked Twitter users if they wanted an ‘edit’ button. An overwhelming majority said yes.</a>
+                    </li>
+                    <li class="bullet_item">
+                        <a  href="https://www.marketwatch.com/story/can-elon-musk-change-the-way-people-tweet-now-that-hes-twitters-largest-single-shareholder-musk-is-never-a-passive-participant-in-anything-he-does-11649110844?mod=home-page">‘Musk is never a passive participant’: Can Elon Musk overhaul Twitter?</a>
+                    </li>
+
+                    <li class="bullet_item">
+                        <a  href="https://www.marketwatch.com/story/mortgage-rates-surpassed-4-5-heres-what-home-buyers-need-to-know-11648735667?mod=home-page">Mortgage rates zoom past 4.5% — here’s what home buyers need to know</a>
+                    </li>
+                    <li class="bullet_item">
+                        <a  href="https://www.marketwatch.com/picks/inevitable-in-the-very-near-future-4-economists-and-real-estate-pros-on-exactly-when-mortgage-rates-will-hit-5-01648838969?mod=home-page">‘Inevitable, in the very near future.’ 4 economists and real estate pros on exactly when mortgage rates will hit 5%</a>
+                    </li>
+
+                </ul>
+                </div>
+            </div>
+            <div class="col-md-7" >
+                <div class="top">comment</div>
+                <div class="col-md-12" style="min-height: 380px;" >
+                    <ul id="comment">
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default" id="next" style="width: 104px">next</button>
+                    <button class="btn btn-default" id="previous" style="width: 104px;float: left;">previous</button>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="reg_comment" rows="3" style="height: 130px;" placeholder="comments"></textarea>
+                </div>
+                <div class="form-group">
+                    <button id="commentSub" class="btn btn-default">submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+<style>
+    li a {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
+    li{
+        text-align: left;
+        font-size: 16px;
+    }
+
+    #comment li{
+        font-size: 18px;
+        padding: 3px;
+        list-style-type: none;
+    }
+
+    .bullet_item {
+        list-style-type: disc;
+        margin-bottom: 8px;
+    }
+
+    .top{
+        font-size: 30px;
+        float: right;
+    }
+
+
+    .my-form {
+        margin-top: 100px;
+        padding: 20px;
+    }
+
+    .form-bg {
+        background: #bbd5ef;
+    }
+
+    .form-horizontal {
+        background: #fff;
+        padding-bottom: 40px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .form-horizontal .heading {
+        display: block;
+        font-size: 25px;
+        font-weight: 700;
+        padding: 35px 0;
+        border-bottom: 1px solid #f0f0f0;
+        margin-bottom: 30px;
+    }
+
+    .form-horizontal .form-group {
+        padding: 0 40px;
+        margin: 0 0 25px 0;
+        position: relative;
+    }
+
+    .form-horizontal .form-control {
+        background: #f0f0f0;
+        border: none;
+        border-radius: 20px;
+        box-shadow: none;
+        padding: 10px;
+        transition: all 0.3s ease 0s;
+    }
+
+    .form-horizontal .form-control:focus {
+        background: #e0e0e0;
+        box-shadow: none;
+        outline: 0 none;
+    }
+
+    .form-horizontal .form-group i {
+        position: absolute;
+        top: 12px;
+        left: 60px;
+        font-size: 17px;
+        color: #c8c8c8;
+        transition: all 0.5s ease 0s;
+    }
+
+    .form-horizontal .form-control:focus + i {
+        color: #00b4ef;
+    }
+
+    .form-horizontal .fa-question-circle {
+        display: inline-block;
+        position: absolute;
+        top: 12px;
+        right: 60px;
+        font-size: 20px;
+        color: #808080;
+        transition: all 0.5s ease 0s;
+    }
+
+    .form-horizontal .fa-question-circle:hover {
+        color: #000;
+    }
+
+    .form-horizontal .main-checkbox {
+        float: left;
+        width: 20px;
+        height: 20px;
+        background: #11a3fc;
+        border-radius: 50%;
+        position: relative;
+        margin: 5px 0 0 5px;
+        border: 1px solid #11a3fc;
+    }
+
+    .form-horizontal .main-checkbox label {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+
+    .form-horizontal .main-checkbox label:after {
+        content: "";
+        width: 10px;
+        height: 5px;
+        position: absolute;
+        top: 5px;
+        left: 4px;
+        border: 3px solid #fff;
+        border-top: none;
+        border-right: none;
+        background: transparent;
+        opacity: 0;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    .form-horizontal .main-checkbox input[type=checkbox] {
+        visibility: hidden;
+    }
+
+    .form-horizontal .main-checkbox input[type=checkbox]:checked + label:after {
+        opacity: 1;
+    }
+
+    .form-horizontal .text {
+        float: left;
+        margin-left: 7px;
+        line-height: 20px;
+        padding-top: 5px;
+        text-transform: capitalize;
+    }
+
+    .form-horizontal .btn {
+        float: right;
+        font-size: 14px;
+        color: #fff;
+        background: #00b4ef;
+        border-radius: 30px;
+        padding: 10px 25px;
+        border: none;
+        text-transform: capitalize;
+        transition: all 0.5s ease 0s;
+    }
+
+    @media only screen and (max-width: 479px) {
+        .form-horizontal .form-group {
+            padding: 0 25px;
+        }
+
+        .form-horizontal .form-group i {
+            left: 45px;
+        }
+
+        .form-horizontal .btn {
+            padding: 10px 20px;
+        }
+    }
+</style>
+<script>
+
+    var pageNum = 1;
+    $(document).ready(function () {
+        $.post("userInfo",
+            {
+            },
+            function (data) {
+                $("#name").html(data.nickName);
+            }
+        );
+        list();
+
+        $("#next").click(function () {
+            list(pageNum++);
+        });
+
+        $("#previous").click(function () {
+            if (pageNum == 1){
+                return;
+            }
+            list(pageNum--);
+        });
+
+        $("#commentSub").click(function () {
+            var comment =  $("#reg_comment").val();
+            if (comment == ""){
+                alert("empty comment");
+                return;
+            }
+
+            $.post("comment",
+                {
+                    content: $("#reg_comment").val(),
+                },
+                function (data) {
+                    if(data == 1){
+                        alert("success");
+                        window.location.href = "./";
+                    }else if(data == 0){
+                        alert("Don’t find the user");
+                    }
+                });
+
+        });
+
+
+    });
+
+    function list(){
+        $.post("list",
+            {
+                pageNum: pageNum
+            },
+            function (data) {
+                var list = data.content;
+                var content = ""
+                for (var i=0;i<list.length;i++){
+                    content += "<li>" + list[i].nickName+ "：" +  list[i].content + "</li>"
+                }
+                $("#comment").html(content);
+                var totalPages = data.totalPages;
+                if(totalPages >= pageNum + 1){
+                    $("#next").show();
+                }else{
+                    $("#next").hide();
+                }
+
+                if (pageNum != 1){
+                    $("#previous").show();
+                }else{
+                    $("#previous").hide();
+                }
+            }
+        );
+    }
+
+</script>
+</html>
